@@ -4,11 +4,23 @@
 
 { config, pkgs, ... }:
 
-let emacs = import ./emacs.nix { inherit pkgs;}; in {
+let emacs = import ./emacs.nix { inherit pkgs;};
+   unstableTarball =
+    fetchTarball
+    https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
 # add virtualbox additions
 virtualisation.virtualbox.guest.enable = true;
@@ -42,12 +54,13 @@ nixpkgs.config.allowUnfree = true;
   # $ nix search wget
    environment.systemPackages = with pkgs; [
      wget
+     ripgrep
      vim
-     git
+     unstable.git
      jq
      dhall-json
      firefox
-     haskellPackages.purescript
+     purescript
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
