@@ -14,15 +14,19 @@ in
     evil-org
     evil-surround
     flycheck
+    git-gutter
     helm
     helm-ag
+    scss-mode
+    rainbow-delimiters
     helm-projectile
     helm-swoop
     magit          # ; Integrate git <C-x g>
     projectile
-    uniquify
     which-key
+    powerline
   ]) ++ (with epkgs.melpaPackages; [ 
+    multiple-cursors
     restclient
     nix-mode
     ace-jump-mode
@@ -35,6 +39,7 @@ in
     evil-ediff
     undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [ 
+    rainbow-mode
     auctex         # ; LaTeX mode
     beacon         # ; highlight my cursor when scrolling
     exwm

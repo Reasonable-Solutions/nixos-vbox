@@ -61,6 +61,7 @@ nixpkgs.config.allowUnfree = true;
      dhall-json
      firefox
      purescript
+     unstable.chromium
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
