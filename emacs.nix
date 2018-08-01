@@ -2,28 +2,36 @@
 
 let
   myEmacs = pkgs.emacs; 
-  emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages; 
+  emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
+
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [ 
-    magit          # ; Integrate git <C-x g>
-    which-key
+    company
     evil
     evil-escape
     evil-leader
+    evil-magit
     evil-org
     evil-surround
-    evil-magit
     flycheck
-    projectile
     helm
     helm-ag
-    helm-swoop
     helm-projectile
-    company
+    helm-swoop
+    magit          # ; Integrate git <C-x g>
+    projectile
+    uniquify
+    which-key
   ]) ++ (with epkgs.melpaPackages; [ 
     restclient
+    nix-mode
     ace-jump-mode
+    rjsx-mode
+    handlebars-mode
+    eshell-git-prompt
+    shackle
     hydra
+    multi-term
     evil-ediff
     undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [ 
@@ -32,4 +40,6 @@ in
     exwm
   ]) ++ [
     pkgs.notmuch   # From main packages set 
-  ])
+  ]
+
+)
