@@ -62,6 +62,7 @@ nixpkgs.config.allowUnfree = true;
      firefox
      purescript
      unstable.chromium
+     silver-searcher
    ];
 
   # Some programs need SUID wrappers, can be configured further or are

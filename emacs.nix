@@ -15,34 +15,38 @@ in
     evil-surround
     flycheck
     git-gutter
+    haskell-mode
     helm
     helm-ag
-    scss-mode
-    rainbow-delimiters
     helm-projectile
     helm-swoop
     magit          # ; Integrate git <C-x g>
-    projectile
-    which-key
     powerline
+    projectile
+    rainbow-delimiters
+    scss-mode
+    use-package
+    which-key
+    yaml-mode
   ]) ++ (with epkgs.melpaPackages; [ 
-    multiple-cursors
-    restclient
-    nix-mode
     ace-jump-mode
-    rjsx-mode
-    handlebars-mode
+    dhall-mode
     eshell-git-prompt
-    shackle
+    evil-ediff
+    handlebars-mode
     hydra
     multi-term
-    evil-ediff
+    multiple-cursors
+    nix-mode
+    restclient
+    rjsx-mode
+    shackle
     undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [ 
-    rainbow-mode
     auctex         # ; LaTeX mode
     beacon         # ; highlight my cursor when scrolling
     exwm
+    rainbow-mode
   ]) ++ [
     pkgs.notmuch   # From main packages set 
   ]
