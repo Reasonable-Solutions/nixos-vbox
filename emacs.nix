@@ -7,6 +7,7 @@ let
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [ 
     company
+    eshell-git-prompt
     evil
     evil-escape
     evil-leader
@@ -28,6 +29,7 @@ in
     use-package
     which-key
     yaml-mode
+    org-tree-slide
   ]) ++ (with epkgs.melpaPackages; [ 
     ace-jump-mode
     dhall-mode
