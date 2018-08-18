@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 
-let emacs = import ./emacs.nix { inherit pkgs;};
+let myemacs = import ./emacs.nix { inherit pkgs;};
    unstableTarball =
     fetchTarball
     https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
@@ -64,6 +64,7 @@ nixpkgs.config.allowUnfree = true;
      unstable.chromium
      silver-searcher
      alacritty
+     myemacs
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -97,18 +98,13 @@ services.compton.enable = true;
 services.xserver = {
   enable = true;
   layout = "us";
-  dpi = 180;
-  desktopManager = {
-    default = "emacs";
-    session = [ {
-      manage = "desktop";
-      name = "emacs";
-      start = ''
-        ${emacs}/bin/emacs &
-        waitPID=$!
-      '';
-    } ];
-  };
+    dpi = 180;
+    windowManager = {
+      xmonad.enable = true; 
+      xmonad.enableContribAndExtras = true;
+    };
+    desktopManager.xterm.enable = false;
+    desktopManager.default = "none";
 };
 
  users.extraUsers.carl = {
@@ -117,8 +113,6 @@ services.xserver = {
     extraGroups = ["docker" "lp" "vboxfs" "wheel" "networkmanager"];
 
     packages = with pkgs; [
-      pavucontrol
-       spotify
       xclip
     ];
 };

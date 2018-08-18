@@ -33,21 +33,28 @@ in
   ]) ++ (with epkgs.melpaPackages; [ 
     ace-jump-mode
     dhall-mode
+    editorconfig
     eshell-git-prompt
     evil-ediff
     handlebars-mode
     hydra
+    markdown-mode
     multi-term
     multiple-cursors
     nix-mode
     restclient
     rjsx-mode
+    reason-mode
+    nix-sandbox
+    nixos-options
+    helm-nixos-options
+    flycheck
+    company-nixos-options
     shackle
     undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [ 
     auctex         # ; LaTeX mode
     beacon         # ; highlight my cursor when scrolling
-    exwm
     rainbow-mode
   ]) ++ [
     pkgs.notmuch   # From main packages set 
