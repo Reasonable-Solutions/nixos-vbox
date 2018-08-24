@@ -61,6 +61,9 @@ nixpkgs.config.allowUnfree = true;
      wget
      ripgrep
      vim
+     alacritty
+     tmux
+     dmenu
      unstable.git
      jq
      dhall-json
