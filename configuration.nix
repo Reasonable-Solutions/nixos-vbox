@@ -54,6 +54,10 @@ nixpkgs.config.allowUnfree = true;
   # $ nix search wget
    environment.systemPackages = with pkgs; [
      cabal2nix
+     unstable.reason
+     unstable.ocamlPackages.merlin
+     unstable.ocaml_4_02
+     darcs
      wget
      ripgrep
      vim

@@ -33,6 +33,7 @@ in
   ]) ++ (with epkgs.melpaPackages; [ 
     ace-jump-mode
     dhall-mode
+    reason-mode
     editorconfig
     eshell-git-prompt
     evil-ediff
