@@ -1,11 +1,11 @@
-{ pkgs ? import <nixpkgs> {} }: 
+{ pkgs ? import <nixpkgs> {} }:
 
 let
-  myEmacs = pkgs.emacs; 
+  myEmacs = pkgs.emacs;
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 
 in
-  emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [ 
+  emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     company
     eshell-git-prompt
     evil
@@ -21,7 +21,9 @@ in
     helm-ag
     helm-projectile
     helm-swoop
-    magit          # ; Integrate git <C-x g>
+    magit
+    org-tree-slide
+    paredit
     powerline
     projectile
     rainbow-delimiters
@@ -29,8 +31,7 @@ in
     use-package
     which-key
     yaml-mode
-    org-tree-slide
-  ]) ++ (with epkgs.melpaPackages; [ 
+  ]) ++ (with epkgs.melpaPackages; [
     ace-jump-mode
     dhall-mode
     reason-mode
@@ -53,12 +54,12 @@ in
     company-nixos-options
     shackle
     undo-tree      # ; <C-x u> to show the undo tree
-  ]) ++ (with epkgs.elpaPackages; [ 
+  ]) ++ (with epkgs.elpaPackages; [
     auctex         # ; LaTeX mode
     beacon         # ; highlight my cursor when scrolling
     rainbow-mode
   ]) ++ [
-    pkgs.notmuch   # From main packages set 
+    pkgs.notmuch   # From main packages set
   ]
 
 )
