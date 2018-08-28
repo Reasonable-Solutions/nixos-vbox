@@ -125,6 +125,7 @@ services.xserver = {
 };
 
  fonts.fonts = with pkgs; [ source-code-pro
+    iosevka
     fira-code
     dejavu_fonts
     emacs-all-the-icons-fonts
