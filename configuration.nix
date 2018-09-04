@@ -54,6 +54,7 @@ nixpkgs.config.allowUnfree = true;
   # $ nix search wget
    environment.systemPackages = with pkgs; [
      cabal2nix
+     hicolor_icon_theme
      unstable.reason
      unstable.ocamlPackages.merlin
      unstable.ocaml_4_02
