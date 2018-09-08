@@ -44,6 +44,7 @@ in
     multi-term
     multiple-cursors
     nix-mode
+    racket-mode
     restclient
     rjsx-mode
     reason-mode

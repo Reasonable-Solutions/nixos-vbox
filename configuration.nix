@@ -65,6 +65,7 @@ nixpkgs.config.allowUnfree = true;
      alacritty
      tmux
      dmenu
+     racket
      unstable.git
      jq
      dhall-json
