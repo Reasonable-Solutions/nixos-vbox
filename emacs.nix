@@ -44,7 +44,6 @@ in
     multi-term
     multiple-cursors
     nix-mode
-    eglot
     racket-mode
     restclient
     rjsx-mode
