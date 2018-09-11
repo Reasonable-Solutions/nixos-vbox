@@ -72,6 +72,7 @@ nixpkgs.config.allowUnfree = true;
      firefox
      unstable.chromium
      silver-searcher
+     sqlite
      alacritty
      myemacs
    ];
