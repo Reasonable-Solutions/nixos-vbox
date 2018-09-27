@@ -28,31 +28,35 @@ in
     projectile
     rainbow-delimiters
     scss-mode
+    skewer-mode
     use-package
     which-key
     yaml-mode
   ]) ++ (with epkgs.melpaPackages; [
     ace-jump-mode
+    company-nixos-options
+    dante
     dhall-mode
-    reason-mode
     editorconfig
     eshell-git-prompt
     evil-ediff
+    flycheck
     handlebars-mode
+    helm-nixos-options
+    htmlize
     hydra
     markdown-mode
     multi-term
     multiple-cursors
     nix-mode
-    racket-mode
-    restclient
-    rjsx-mode
-    reason-mode
     nix-sandbox
     nixos-options
-    helm-nixos-options
-    flycheck
-    company-nixos-options
+    outshine
+    racket-mode
+    reason-mode
+    reason-mode
+    restclient
+    rjsx-mode
     shackle
     undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [
