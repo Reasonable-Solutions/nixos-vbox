@@ -40,6 +40,7 @@ in
     editorconfig
     eshell-git-prompt
     evil-ediff
+    evil-lispy
     flycheck
     handlebars-mode
     helm-nixos-options
