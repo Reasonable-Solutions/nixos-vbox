@@ -82,7 +82,7 @@ nixpkgs.config.allowUnfree = true;
      tmux
      dmenu
      racket
-     unstable.git
+     gitAndTools.gitFull
      jq
      dhall-json
      firefox
