@@ -81,15 +81,15 @@ nixpkgs.config.allowUnfree = true;
      alacritty
      tmux
      dmenu
-     racket
-     gitAndTools.gitFull
+     unstable.racket
+     git
      jq
      dhall-json
      firefox
      unstable.chromium
      silver-searcher
      sqlite
-     alacritty
+     unstable.alacritty
      myemacs
    ];
 
@@ -103,6 +103,8 @@ nixpkgs.config.allowUnfree = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.compton.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -120,7 +122,6 @@ nixpkgs.config.allowUnfree = true;
 networking.interfaces.enp0s8.ipv4.addresses = [ { address = "192.168.56.14"; prefixLength = 24; } ];
 networking.extraHosts = "192.168.56.1 winwin";
 
-services.compton.enable = true;
 services.xserver = {
   enable = true;
   layout = "us";

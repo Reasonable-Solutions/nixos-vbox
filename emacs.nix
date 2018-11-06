@@ -11,7 +11,6 @@ in
     evil
     evil-escape
     evil-leader
-    evil-magit
     evil-org
     evil-surround
     flycheck
@@ -59,7 +58,6 @@ in
     restclient
     rjsx-mode
     shackle
-    undo-tree      # ; <C-x u> to show the undo tree
   ]) ++ (with epkgs.elpaPackages; [
     auctex         # ; LaTeX mode
     beacon         # ; highlight my cursor when scrolling
