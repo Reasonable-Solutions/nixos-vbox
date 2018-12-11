@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 let myemacs = import ./emacs.nix { inherit pkgs;};
-   unstableTarball =
+    unstableTarball =
     fetchTarball
     https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
 in {
@@ -21,6 +21,9 @@ nixpkgs.config = {
       };
     };
   };
+
+services.postgresql.enable = true;
+services.postgresql.package = pkgs.postgresql100;
 
 ###START KOMPOSITION
 nix = {
@@ -153,6 +156,7 @@ services.xserver = {
   services.redshift.enable = true;
   services.redshift.latitude = "59.911491";
   services.redshift.longitude = "10.757933";
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
