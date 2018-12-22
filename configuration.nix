@@ -73,9 +73,7 @@ nixpkgs.config.allowUnfree = true;
    environment.systemPackages = with pkgs; [
      cabal2nix
      hicolor_icon_theme ## this is a thing emacs complains about not finding?
-     unstable.reason
-     unstable.ocamlPackages.merlin
-     unstable.ocaml_4_02
+     reason
      darcs
      evince
      wget
