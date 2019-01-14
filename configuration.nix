@@ -92,6 +92,7 @@ nixpkgs.config.allowUnfree = true;
      sqlite
      unstable.alacritty
      myemacs
+     unstable.cabal-install
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
