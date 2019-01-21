@@ -5,9 +5,10 @@
 { config, pkgs, ... }:
 
 let myemacs = import ./emacs.nix { inherit pkgs;};
-    unstableTarball =
-    fetchTarball
+    unstableTarball = fetchTarball
     https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+    yi-carl = pkgs.haskell.lib.justStaticExecutables
+      (pkgs.haskellPackages.callPackage ./yi/yi.nix { });
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -41,6 +42,7 @@ nix = {
 
 ####END KOMPOsition
 # add virtualbox additions
+
 virtualisation.virtualbox.guest.enable = true;
 nixpkgs.config.virtualbox.enableExtensionPack = true;
 
@@ -92,6 +94,7 @@ nixpkgs.config.allowUnfree = true;
      sqlite
      unstable.alacritty
      myemacs
+     yi-carl
      unstable.cabal-install
    ];
 
