@@ -7,8 +7,6 @@
 let myemacs = import ./emacs.nix { inherit pkgs;};
     unstableTarball = fetchTarball
     https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-    yi-carl = pkgs.haskell.lib.justStaticExecutables
-      (pkgs.haskellPackages.callPackage ./yi/yi.nix { });
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -26,21 +24,6 @@ nixpkgs.config = {
 services.postgresql.enable = true;
 services.postgresql.package = pkgs.postgresql100;
 
-###START KOMPOSITION
-nix = {
-  binaryCaches = [
-    "https://cache.nixos.org/"
-    "https://komposition.cachix.org"
-    "https://nixcache.reflex-frp.org"
-  ];
-  binaryCachePublicKeys = [
-    "komposition.cachix.org-1:nzWESzP0bEENshGnqQYN8+mic6JOxw2APw/AJAXhF3Y="
-    "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-  ];
-  trustedUsers = [ "root" "carl" ];
-  };
-
-####END KOMPOsition
 # add virtualbox additions
 
 virtualisation.virtualbox.guest.enable = true;
@@ -57,7 +40,7 @@ nixpkgs.config.allowUnfree = true;
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.
@@ -75,7 +58,6 @@ nixpkgs.config.allowUnfree = true;
    environment.systemPackages = with pkgs; [
      cabal2nix
      hicolor_icon_theme ## this is a thing emacs complains about not finding?
-     reason
      darcs
      evince
      wget
@@ -94,7 +76,6 @@ nixpkgs.config.allowUnfree = true;
      sqlite
      unstable.alacritty
      myemacs
-     yi-carl
      unstable.cabal-install
    ];
 
