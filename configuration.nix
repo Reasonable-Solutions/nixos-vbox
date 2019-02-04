@@ -25,7 +25,7 @@ services.postgresql.enable = true;
 services.postgresql.package = pkgs.postgresql100;
 
 # add virtualbox additions
-
+virtualisation.virtualbox.host.enableHardening = false;
 virtualisation.virtualbox.guest.enable = true;
 nixpkgs.config.virtualbox.enableExtensionPack = true;
 
@@ -96,7 +96,7 @@ nixpkgs.config.allowUnfree = true;
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -123,7 +123,7 @@ services.xserver = {
  users.extraUsers.carl = {
     isNormalUser = true;
     home = "/home/carl";
-    extraGroups = ["docker" "lp" "vboxfs" "wheel" "networkmanager"];
+    extraGroups = ["docker" "lp" "vboxfs" "wheel" "networkmanager" "vboxusers"];
 
     packages = with pkgs; [
       xclip
