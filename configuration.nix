@@ -13,6 +13,17 @@ in {
       ./hardware-configuration.nix
     ];
 
+nix = {
+  binaryCaches = [
+    "https://cache.nixos.org/"
+    "https://nixcache.reflex-frp.org"
+  ];
+  binaryCachePublicKeys = [
+    "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+  ];
+  trustedUsers = [ "root" "carl" ];
+  };
+
 nixpkgs.config = {
     packageOverrides = pkgs: {
       unstable = import unstableTarball {
@@ -93,7 +104,7 @@ nixpkgs.config.allowUnfree = true;
   services.compton.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8080 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
