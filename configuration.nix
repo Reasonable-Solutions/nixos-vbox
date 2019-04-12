@@ -32,9 +32,6 @@ nixpkgs.config = {
     };
   };
 
-services.postgresql.enable = true;
-services.postgresql.package = pkgs.postgresql100;
-
 # add virtualbox additions
 virtualisation.virtualbox.host.enableHardening = false;
 virtualisation.virtualbox.guest.enable = true;
