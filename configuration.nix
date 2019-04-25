@@ -32,6 +32,9 @@ nixpkgs.config = {
     };
   };
 
+# fix always failing fsck on virtualbox
+boot.initrd.checkJournalingFS = false;
+
 # add virtualbox additions
 virtualisation.virtualbox.host.enableHardening = false;
 virtualisation.virtualbox.guest.enable = true;
