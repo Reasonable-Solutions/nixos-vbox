@@ -7,6 +7,7 @@
 let myemacs = import ./emacs.nix { inherit pkgs;};
     unstableTarball = fetchTarball
     https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+    ghcs = with pkgs; [haskell.compiler.ghc844 haskell.compiler.ghc822 haskell.compiler.ghc864];
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -64,9 +65,10 @@ nixpkgs.config.allowUnfree = true;
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
      cabal2nix
      hicolor_icon_theme ## this is a thing emacs complains about not finding?
      darcs
@@ -87,8 +89,9 @@ nixpkgs.config.allowUnfree = true;
      sqlite
      unstable.alacritty
      myemacs
+     unstable.ghc
      unstable.cabal-install
-   ];
+   ] ++ ghcs;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
