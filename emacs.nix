@@ -13,6 +13,8 @@ in
     evil-leader
     evil-org
     evil-surround
+    lsp-mode
+    lsp-ui
     flycheck
     git-gutter
     haskell-mode
@@ -27,7 +29,6 @@ in
     projectile
     rainbow-delimiters
     scss-mode
-    skewer-mode
     use-package
     which-key
     yaml-mode
@@ -41,29 +42,22 @@ in
     evil-ediff
     evil-lispy
     flycheck
-    handlebars-mode
     helm-nixos-options
     htmlize
     hydra
     markdown-mode
     multi-term
-    multiple-cursors
     nix-mode
     nix-sandbox
     nixos-options
-    outshine
     racket-mode
-    reason-mode
     reason-mode
     restclient
     rjsx-mode
     shackle
   ]) ++ (with epkgs.elpaPackages; [
-    auctex         # ; LaTeX mode
-    beacon         # ; highlight my cursor when scrolling
     rainbow-mode
   ]) ++ [
-    pkgs.notmuch   # From main packages set
   ]
 
 )
