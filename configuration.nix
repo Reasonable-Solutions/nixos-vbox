@@ -5,8 +5,9 @@
 { config, pkgs, ... }:
 
 let myemacs = import ./emacs.nix { inherit pkgs;};
+    all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
     unstableTarball = fetchTarball
-    https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
     ghcs = with pkgs; [haskell.compiler.ghc844 haskell.compiler.ghc822 haskell.compiler.ghc864];
 in {
   imports =
@@ -87,10 +88,12 @@ nixpkgs.config.allowUnfree = true;
      unstable.chromium
      silver-searcher
      sqlite
+    (all-hies.selection { selector = p: { inherit (p) ghc864 ghc863 ghc843; }; })
      unstable.alacritty
      myemacs
      unstable.ghc
      unstable.cabal-install
+
    ] ++ ghcs;
 
   # Some programs need SUID wrappers, can be configured further or are
